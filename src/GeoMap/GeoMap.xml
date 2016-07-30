@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="GeoMap.GeoMap" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+    <name>Google GeoMap</name>
+    <description>Google GeoMap</description>
+    <icon>
+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
+
+    </icon>
+    <properties>
+
+        <property key="mapEntity" type="entity" required="true">
+            <caption>Objects</caption>
+            <category>Data Source</category>
+            <description>The objects to show on the map.</description>
+        </property>
+        <property key="xpathConstraint" type="entityConstraint" entityProperty="mapEntity" required="false">
+            <caption>XPath Constraint</caption>
+            <category>Data Source</category>
+            <description>The XPath constraint on the objects.</description> 
+        </property>
+        <property key="mapHeight" type="integer" defaultValue="350">
+            <caption>Height</caption>
+            <category>Map</category>
+            <description>The map's height in px.</description> 
+        </property>
+        <property key="mapWidth" type="string">
+            <caption>Width</caption>
+            <category>Map</category>
+            <description>The map's width in px or percent.</description> 
+        </property>
+	<property key="onClickMicroflow" type="microflow" entityProperty="mapEntity" required="false"  >
+			<caption>On Click Microflow</caption>
+			<category>Map</category>
+			<description>Select the Microflow that is fired on click of an area.</description>
+			<returnType type="Void" />
+		</property>
+		<property key="mapBorderColor" type="string" defaultValue="#D12148">
+            <caption>Border Color</caption>
+            <category>Styling</category>
+            <description>The color of the border of the mapobject</description> 
+        </property>
+		<property key="backGroundColor" type="string" defaultValue="#D5E8EE">				
+            <caption>BackGround Color</caption>
+            <category>Styling</category>
+            <description>The color of the sea in the map</description> 
+        </property>
+		<property key="colorAxisStart" type="string" defaultValue="#00853f">				
+            <caption>ColorAxis Start</caption>
+            <category>Styling</category>
+            <description>The beginning color for the scale of the color axis.</description> 
+        </property>
+		<property key="colorAxisEnd" type="string" defaultValue="#e31b23">		
+            <caption>ColorAxis End</caption>
+            <category>Styling</category>
+            <description>The ending color for the scale of the color axis.</description> 
+        </property>
+		<property key="toolTipColor" type="string" defaultValue="#FF0000">			
+            <caption>ToolTip Color</caption>
+            <category>Styling</category>
+            <description>The color for the appearing tooltip text.</description> 
+        </property>
+        <property key="showZoomOut" type="boolean" defaultValue="true">
+            <caption>Show Zoom Out</caption>
+            <category>Map</category>
+            <description>If true, display a button with the label specified by the zoomOutLabel property. Note that this button does nothing when clicked, except throw the zoomOut event.</description>
+        </property>
+		<property key="zoomOutLabel" type="string" defaultValue="Zoom Out">
+            <caption>Zoom Out Label</caption>
+            <category>Map</category>
+            <description>Label for the zoom button.</description> 
+        </property>
+	<property key="region" type="string" defaultValue="world">
+            <caption>Region</caption>
+            <category>Map</category>
+            <description>The area to display on the map. (Surrounding areas will be displayed as well.) Can be either a country code (in uppercase ISO-3166 format), or a one of the following strings. world - (Whole world)
+us_metro - (United States, metro areas)
+005 - (South America)
+013 - (Central America)
+021 - (North America)
+002 - (All of Africa)
+017 - (Central Africa)
+015 - (Northern Africa)
+018 - (Southern Africa)
+030 - (Eastern Asia)
+034 - (Southern Asia)
+035 - (Asia/Pacific region)
+009 - (Oceania)
+145 - (Middle East)
+143 - (Central Asia)
+151 - (Northern Asia)
+154 - (Northern Europe)
+155 - (Western Europe)
+039 - (Southern Europe)</description> 
+        </property>
+		<property key="showLegend" type="boolean" defaultValue="true">
+            <caption>Enable Legend</caption>
+            <category>Legend</category>
+            <description>	If true, display a legend for the map.</description> 
+        </property>
+		<property key="legendName" type="string" defaultValue="Population">
+            <caption>Name</caption>
+            <category>Legend</category>
+            <description>The name for the legend</description> 
+        </property>
+		<property key="legendFontColor" type="string" defaultValue="#000000">
+            <caption>Font Color</caption>
+            <category>Legend</category>
+            <description>The color of the font of the legend</description> 
+        </property>
+		<property key="legendFontSize" type="integer" defaultValue="14">
+            <caption>Font Size</caption>
+            <category>Legend</category>
+            <description>The size of the font of the legend</description> 
+        </property>
+	<property key="dataType" type="enumeration" required="true" defaultValue="region">
+            <caption>Data Type</caption>
+            <category>Data Source</category>
+            <description>Determines which Google Chart to display. </description>
+			<enumerationValues>
+				<enumerationValue key="region">Region</enumerationValue>
+				<enumerationValue key="markers">Markers</enumerationValue>
+				<enumerationValue key="auto">Auto</enumerationValue>
+				<enumerationValue key="text">Text</enumerationValue>
+			</enumerationValues>
+	</property>
+        <property key="apiAccessKey" type="string" required="false">
+            <caption>Maps API Access Key</caption>
+            <category>Google API</category>
+            <description>The Google Maps JavaScript API v3 does not require an API key to function correctly. However, Google strongly encourages you to load the Maps API using an APIs Console key which allows you to monitor your application's Maps API usage.</description>
+        </property>
+	<property key="mapTypeEnum" type="enumeration" required="true" defaultValue="GeoChart">
+            <caption>Map Type</caption>
+            <category>Google API</category>
+            <description>Determines which type of Google Chart to display. By default it is the newer SVG based GeoChart. The older Flash based GeoMap can also be chosen.</description>
+			<enumerationValues>
+				<enumerationValue key="GeoChart">GeoChart</enumerationValue>
+				<enumerationValue key="GeoMap">GeoMap</enumerationValue>
+			</enumerationValues>
+	</property>
+	<property key="mapBorderRadius" type="integer" defaultValue="4">
+            <caption>Border Radius</caption>
+            <category>Map</category>
+            <description>The radius (in pixel) for the border of the map</description> 
+        </property>
+        <property key="countryAttr" type="attribute" entityProperty="mapEntity" required="true" isPath="optional" pathType="reference">
+            <caption>Country attribute</caption>
+            <category>Data Source</category>
+            <description>The country attribute.</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+            </attributeTypes>
+        </property>
+        <property key="numberAttr" type="attribute" entityProperty="mapEntity" required="true" isPath="optional" pathType="reference">
+            <caption>Number attribute</caption>
+            <category>Data Source</category>
+            <description>The number attribute.</description>
+            <attributeTypes>
+                <attributeType name="Integer"/>
+                <attributeType name="Float"/>
+            </attributeTypes>
+        </property> 
+		<property key="enableLogging" type="boolean" defaultValue="false">
+		  <caption>Enable Logging</caption>
+		  <category>Logging</category>
+		  <description>The boolean can enable/disable logging on this widget for debugging purposes.</description>
+		</property> 
+    </properties>
+</widget>
