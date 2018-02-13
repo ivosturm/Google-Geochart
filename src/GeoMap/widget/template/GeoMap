@@ -1,0 +1,3 @@
+<div class="geomap">
+    <div data-dojo-attach-point="geoMapContainer"></div>
+</div>
