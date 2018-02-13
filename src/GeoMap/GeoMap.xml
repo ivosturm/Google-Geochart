@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="GeoMap.GeoMap" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
+<widget id="GeoMap.widget.GeoMap" needsEntityContext="false" xmlns="http://www.mendix.com/widget/1.0/">
     <name>Google GeoMap</name>
     <description>Google GeoMap</description>
     <icon>
@@ -23,11 +23,22 @@ iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
             <category>Map</category>
             <description>The map's height in px.</description> 
         </property>
-        <property key="mapWidth" type="string">
+        <property key="mapWidth" type="integer" defaultValue="350">
             <caption>Width</caption>
             <category>Map</category>
-            <description>The map's width in px or percent.</description> 
+            <description>The map's width in px.</description> 
         </property>
+	<property key="dataType" type="enumeration" required="true" defaultValue="region">
+            <caption>Data Type</caption>
+            <category>Map</category>
+            <description>Determines which Google Chart to display. </description>
+			<enumerationValues>
+				<enumerationValue key="region">Region</enumerationValue>
+				<enumerationValue key="markers">Markers</enumerationValue>
+				<enumerationValue key="auto">Auto</enumerationValue>
+				<enumerationValue key="text">Text</enumerationValue>
+			</enumerationValues>
+	</property>
 	<property key="onClickMicroflow" type="microflow" entityProperty="mapEntity" required="false"  >
 			<caption>On Click Microflow</caption>
 			<category>Map</category>
@@ -38,6 +49,11 @@ iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
             <caption>Border Color</caption>
             <category>Styling</category>
             <description>The color of the border of the mapobject</description> 
+        </property>
+		<property key="mapBorderRadius" type="integer" defaultValue="4">
+            <caption>Border Radius</caption>
+            <category>Styling</category>
+            <description>The radius (in pixel) for the border of the map</description> 
         </property>
 		<property key="backGroundColor" type="string" defaultValue="#D5E8EE">				
             <caption>BackGround Color</caption>
@@ -112,35 +128,10 @@ us_metro - (United States, metro areas)
             <category>Legend</category>
             <description>The size of the font of the legend</description> 
         </property>
-	<property key="dataType" type="enumeration" required="true" defaultValue="region">
-            <caption>Data Type</caption>
-            <category>Data Source</category>
-            <description>Determines which Google Chart to display. </description>
-			<enumerationValues>
-				<enumerationValue key="region">Region</enumerationValue>
-				<enumerationValue key="markers">Markers</enumerationValue>
-				<enumerationValue key="auto">Auto</enumerationValue>
-				<enumerationValue key="text">Text</enumerationValue>
-			</enumerationValues>
-	</property>
         <property key="apiAccessKey" type="string" required="false">
             <caption>Maps API Access Key</caption>
             <category>Google API</category>
             <description>The Google Maps JavaScript API v3 does not require an API key to function correctly. However, Google strongly encourages you to load the Maps API using an APIs Console key which allows you to monitor your application's Maps API usage.</description>
-        </property>
-	<property key="mapTypeEnum" type="enumeration" required="true" defaultValue="GeoChart">
-            <caption>Map Type</caption>
-            <category>Google API</category>
-            <description>Determines which type of Google Chart to display. By default it is the newer SVG based GeoChart. The older Flash based GeoMap can also be chosen.</description>
-			<enumerationValues>
-				<enumerationValue key="GeoChart">GeoChart</enumerationValue>
-				<enumerationValue key="GeoMap">GeoMap</enumerationValue>
-			</enumerationValues>
-	</property>
-	<property key="mapBorderRadius" type="integer" defaultValue="4">
-            <caption>Border Radius</caption>
-            <category>Map</category>
-            <description>The radius (in pixel) for the border of the map</description> 
         </property>
         <property key="countryAttr" type="attribute" entityProperty="mapEntity" required="true" isPath="optional" pathType="reference">
             <caption>Country attribute</caption>
