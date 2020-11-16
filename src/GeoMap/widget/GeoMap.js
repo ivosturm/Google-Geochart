@@ -4,9 +4,9 @@
     ========================
 
     @file      : GeoMap.js
-    @version   : 2.1
+    @version   : 2.2
     @author    : Ivo Sturm
-    @date      : 10-11-2020
+    @date      : 16-11-2020
     @copyright : First Consulting
     @license   : Apache V2
 
@@ -18,6 +18,7 @@
 	v2.1: - upgraded to Mendix 8
 		  - moved to new loading of Google Charts via loader library
 		  - clean up code
+	v2.2: - removed unnecessary _waitForGoogleLoad function
 	
 */
 // Required module list. Remove unnecessary modules, you can always get them back from the boilerplate.
@@ -91,8 +92,6 @@ define([
 			this.domNode.style.border = this.mapBorderRadius + 'px solid' + this.mapBorderColor;
 						
 			dojo.addClass(this.domNode, 'geoChartWidget');
-
-
 								
 		},
 		update : function(obj, callback){
@@ -107,21 +106,17 @@ define([
 				}
 
 				if (!google.visualization) {
-					if (!window._googleVisualizationLoading) {
-						window._googleVisualizationLoading = true;
-						google.charts.load('current', {
-							'packages':['geochart'],
-							// Note: you will need to get a mapsApiKey for your project.
-							// See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-							'mapsApiKey': this.apiAccessKey
-							});
-						google.charts.setOnLoadCallback(dojo.hitch(this, function() {
-							window._googleVisualizationLoading = false;
-							this.drawChart(callback);
-						}));
-					} else {
-						this._waitForGoogleLoad(callback);
-					}
+
+					google.charts.load('current', {
+						'packages':['geochart'],
+						// Note: you will need to get a mapsApiKey for your project.
+						// See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+						'mapsApiKey': this.apiAccessKey
+						});
+					google.charts.setOnLoadCallback(dojo.hitch(this, function() {
+						this.drawChart(callback);
+					}));
+
 				} else {
 					this.drawChart(callback);
 				}
@@ -131,25 +126,6 @@ define([
 				alert(message);
 			}	
 		},  
-		_waitForGoogleLoad: function(callback) {
-            logger.debug(this.id + "._waitForGoogleLoad");
-            var interval = null,
-                i = 0,
-                timeout = 5000; // We'll timeout if google is not loaded
-            var intervalFunc = lang.hitch(this, function() {
-                i++;
-                if (i > timeout) {
-                    logger.warn(this.id + "._waitForGoogleLoad: it seems Google is not loaded in the other widget. Quitting");
-					this._executeCallback(callback);
-                    clearInterval(interval);
-                }
-                if (!window._googleVisualizationLoading) {
-                    this.drawChart(callback);
-                    clearInterval(interval);
-                }
-            });
-            interval = setInterval(intervalFunc, 1);
-		},
 		_executeCallback: function(cb, from) {
             logger.debug(this.id + "._executeCallback" + (from ? " from " + from : ""));
             if (cb && typeof cb === "function") {
@@ -158,25 +134,17 @@ define([
         },
 		drawChart : function (callback) {
 
-			if (window._googleVisualizationLoading) {
-                this._waitForGoogleLoad(callback);
-            } else {
-			// Run this as soon as google charts is loaded.
-			// Create map and its container.
+			if (!this.geoMap) {
 
-				if (!this.geoMap) {
-
-					this.geoMap = new google.visualization.GeoChart(this.geoMapContainer);	
-									
-				}
-				
-				if (this._contextObj){
-					this._getObjects(this._contextObj.getGuid,callback);
-				} else {
-					this._getObjects(null,callback);
-				}
+				this.geoMap = new google.visualization.GeoChart(this.geoMapContainer);	
+								
+			}
 			
-			}	
+			if (this._contextObj){
+				this._getObjects(this._contextObj.getGuid,callback);
+			} else {
+				this._getObjects(null,callback);
+			}
 						
 		},	
 		_getObjects : function(contextguid, callback) {
