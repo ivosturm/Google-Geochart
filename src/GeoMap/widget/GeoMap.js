@@ -42,7 +42,6 @@ define([
 		apiAccessKey		: '',
 		mapEntity			: '',
 		xpathConstraint		: '',
-		mapHeight			: 0,
 		mapWidth			: '',
 		countryAttr			: '',
 		numberAttr			: '',
@@ -88,7 +87,6 @@ define([
 			this.splits = {};
 			this._objects = [];
 			this.domNode.style.width = this.mapWidth + 'px';
-			this.domNode.style.height = this.mapHeight + 'px';		
 			this.domNode.style.border = this.mapBorderRadius + 'px solid' + this.mapBorderColor;
 						
 			dojo.addClass(this.domNode, 'geoChartWidget');
@@ -270,6 +268,7 @@ define([
 					backgroundColor: this.backGroundColor,
 					datalessRegionColor: '#FFFFFF',
 					defaultColor: '#F6F6F6',
+                    width: this.mapWidth,
 					tooltip: {textStyle: {color: this.toolTipColor}, showColorCode: true}
 			};
 			if (this.showLegend){

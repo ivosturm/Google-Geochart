@@ -18,11 +18,6 @@ iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
             <category>Data Source</category>
             <description>The XPath constraint on the objects.</description> 
         </property>
-        <property key="mapHeight" type="integer" defaultValue="350">
-            <caption>Height</caption>
-            <category>Map</category>
-            <description>The map's height in px.</description> 
-        </property>
         <property key="mapWidth" type="integer" defaultValue="350">
             <caption>Width</caption>
             <category>Map</category>
